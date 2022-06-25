@@ -24,7 +24,7 @@ public class IndexController {
 	public String perfil(Model model) {
 		model.addAttribute("titulo", "MI PRIMER PROGRAMA");
 		// Creamos un objeto de tipo Usuario
-		Usuario u = new Usuario("Luis Carlos", "Rendon Aparicio");
+		Usuario u = new Usuario("Luis Carlos", "Rendon Aparicio","LuisCRendon131@gmail.com");
 
 		// Pasamos nuestro objeto a la vista
 		model.addAttribute("usuario", u);
