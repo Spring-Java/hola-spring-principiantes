@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+	<!---->
+
+	<!--Utilizamos thymeleaf para agregar los valores a nuestra vista-->
+	<title th:text="${titulo}"></title>
+</head>
+
+<body>
+	<h1 th:text="${titulo}"></h1>
+
+	<!--Validamos si nuestra lista tiene elementos-->
+	<div th:if="${usuarios.isEmpty()}" th:text="'No hay usuarios en el sistema'"></div>
+
+	<!--En caso que tengamos usuarios en nuestra lista, iteramos nuestra lista y mostramos en la vista-->
+	<div th:if="${!usuarios.isEmpty()}">
+		<table>
+
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Email</th>
+				</tr>
+
+			</thead>
+
+
+			<tbody>
+			<!--Dentro de nuestro TR, recorreremos nuestra lista de Usuarios con un For each-->
+				<tr th:each="usuario: ${usuarios}">
+					<td th:text="${usuario.nombre}"></td>
+					<td th:text="${usuario.apellido}"></td>
+					<td th:text="${usuario.email}"></td>
+						
+
+				</tr>
+
+ 
+			</tbody>
+
+		</table>
+
+	</div>
+
+
+
+</body>
+
+</html>

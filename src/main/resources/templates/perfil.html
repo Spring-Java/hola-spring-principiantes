@@ -4,9 +4,9 @@
 <head>
 
 	<meta charset="UTF-8" />
-	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
 	<!---->
-	
+
 	<!--Utilizamos thymeleaf para agregar los valores a nuestra vista-->
 	<title th:text="${titulo}"></title>
 </head>
@@ -15,12 +15,14 @@
 	<h1 th:text="${titulo}"></h1>
 	<h2>Usuario: </h2>
 	<p th:text="${usuario.nombre}"></p>
-	
+
 	<p th:text="${usuario.apellido}"></p>
-	
+
 	<!--Validación con Thymeleaf:if-->
-	<p th:text="${usuario.email}"></p>
-	
+	<p th:if="${usuario.email}" th:text="${usuario.email}"></p>
+	<!--En dado caso que no tenga valor nuestro email validamos-->
+	<p th:if="${usuario.email == null}" th:text="'El usuario no tiene correo'"></p>
+
 
 </body>
 

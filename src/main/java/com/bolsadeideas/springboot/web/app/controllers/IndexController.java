@@ -1,5 +1,8 @@
 package com.bolsadeideas.springboot.web.app.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,12 +27,33 @@ public class IndexController {
 	public String perfil(Model model) {
 		model.addAttribute("titulo", "MI PRIMER PROGRAMA");
 		// Creamos un objeto de tipo Usuario
-		Usuario u = new Usuario("Luis Carlos", "Rendon Aparicio","LuisCRendon131@gmail.com");
+		Usuario u = new Usuario("Luis Carlos", "Rendon Aparicio", null);
 
 		// Pasamos nuestro objeto a la vista
 		model.addAttribute("usuario", u);
 		model.addAttribute("titulo", "Perfil del usuario ".concat(u.getNombre()));
 		return "perfil";
 	}
-	//Video 18
+
+	// 3.-Método handler
+	@GetMapping("/listar")
+	public String listar(Model model) {
+		model.addAttribute("titulo", "LISTA DE USUARIOS");
+
+		List<Usuario> lista = new ArrayList<>();
+	
+		lista.add(new Usuario("Luis", "Rendon", "Luis@gmail.com"));
+
+		lista.add(new Usuario("Jesus", "Lopez", "Jesu@gmail.com"));
+
+		lista.add(new Usuario("Miguel", "Fernando", "migedferf@gmail.com"));
+		
+		lista.add(new Usuario("Alejandra","Ayala","aleayala@gmail.com"));
+
+		// Pasamos la lista a la vista
+		model.addAttribute("usuarios", lista);
+
+		return "listar";
+	}
+	//Video: 17 - m:3:02
 }
