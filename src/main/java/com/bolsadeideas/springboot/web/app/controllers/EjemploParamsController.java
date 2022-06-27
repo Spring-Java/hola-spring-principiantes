@@ -45,7 +45,7 @@ public class EjemploParamsController {
 	}
 	
 	//Otra forma para pasar los parametros
-	@GetMapping("/mix-params")
+	@GetMapping("/mix-params-request")
 	public String param(HttpServletRequest request, Model model) {
 		// Enviamos los datos a la vista
 		model.addAttribute("titulo", "Enviando diferentes parametros con @RequestParam");
