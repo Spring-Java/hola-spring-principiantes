@@ -4,18 +4,21 @@
 <head>
 
 	<meta charset="UTF-8" />
-	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+	<!--Todo nuestro contenido: CSS, HTML, JS es agregado en nuestra carpeta: static por defecto-->
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
 	<!---->
-	
+
 	<!--Utilizamos thymeleaf para agregar los valores a nuestra vista-->
 	<title th:text="${titulo}"></title>
 </head>
 
 <body>
-	<h1 th:text="${titulo}"></h1>
-	<h2>Descripción: </h2>
+	<h1 class="titulo" th:text="${titulo}"></h1>
+	<h2 class="sub-titulo">Descripción: </h2>
 	<p th:text="${descripcion}"></p>
 	
+	<img th:src="@{/images/spring.png}"></img>
+
 
 </body>
 

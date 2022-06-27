@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+	<!---->
+
+	<!--Utilizamos thymeleaf para agregar los valores a nuestra vista-->
+	<title th:text="${titulo}"></title>
+</head>
+
+<body>
+	<h1 th:text="${titulo}"></h1>
+
+
+	<ul>
+
+		<!--Pasamos parametros a nuestro método Handler: ver-->
+		<li><a th:href="@{/variables/string/}+ 'Hola Luis Carlos'">/variables/string/Hola Luis Carlos</a></li>
+		<li><a th:href="@{/variables/string/}+ ${'Que tal Carlos'} + '/' + ${'21'}">/variables/string/Que tal
+				Carlos/21</a></li>
+	</ul>
+
+</body>
+
+</html>
