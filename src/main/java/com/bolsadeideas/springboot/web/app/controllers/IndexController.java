@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,10 +15,17 @@ import com.bolsadeideas.springboot.web.app.models.Usuario;
 @Controller // Para especificar que es nuestra clase controlador
 @RequestMapping("/app") // Anotacion de ruta raiz
 public class IndexController {
+	
+	
+	//Vamos a inyectar valores desde nuestro archivo properties- se indica donde se encuentra el valor con la notacion @Value
+	@Value("${texto.indexcontroller.index.titulo}")
+	private String textoIndex;
+	
+	
 
 	@GetMapping({ "/index", "", "/", "/home" })
 	public String index(Model model) { // Utilizamos un MAP(llave,valor) para inyectar valores
-		model.addAttribute("titulo", "HOLA SPRING FRAMEWORK");
+		model.addAttribute("titulo", textoIndex);
 		model.addAttribute("descripcion",
 				"El método GET  solicita una representación de un recurso específico. Las peticiones que ");
 		return "index";
@@ -54,5 +62,5 @@ public class IndexController {
 
 		return "listar";
 	}
-	// Video: 17 - m:3:02
+	// Video: 24
 }
